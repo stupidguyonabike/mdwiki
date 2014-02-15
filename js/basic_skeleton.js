@@ -30,13 +30,13 @@
         if ($.md.config.title)
             $('title').text($.md.config.title);
 
-        $pageTitle = $('#md-content h1').eq(0);
+        $pageTitle = $('h1:first');
         if ($.trim($pageTitle.toptext()).length > 0) {
-            $('#md-title').prepend($pageTitle);
-            var title = $pageTitle.toptext();
-            // document.title = title;
-        } else {
-            $('#md-title').remove();
+            document.title = $.md.config.title + ": " + $pageTitle.text();
+        }
+        else
+        {
+            document.title = $.md.config.title;
         }
     }
     function wrapParagraphText () {
